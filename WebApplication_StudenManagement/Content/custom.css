@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.center-horizontal {
+    /* Center Horizontally (Inline Elements like Text or Images*/
+    text-align: center;
+}
+
+.center-block {
+    /* Center Horizontally (Block Elements*/
+    margin: 0 auto;
+    width: 50%; /* or any fixed width */
+}
+
+.center-flex {
+    /*Center Vertically and Horizontally (Flexbox)*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* or any height */
+}
