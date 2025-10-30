@@ -1,4 +1,6 @@
 ﻿body {
+    background-color: rgb(120, 164, 169);
+    border: 2px solid black;
 }
 
 .center-horizontal {

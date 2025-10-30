@@ -14,7 +14,7 @@ namespace WebApplication_StudenManagement.Classes
         {
         }
 
-        public static LogPage Instance 
+        public static LogPage Instance
         {
             get
             {
@@ -26,9 +26,9 @@ namespace WebApplication_StudenManagement.Classes
             }
             set
             {
-                instance=value;
+                instance = value;
             }
-            
+
         }
 
         public DataTable GetUser(string email, string password)
@@ -40,7 +40,7 @@ namespace WebApplication_StudenManagement.Classes
                 new SqlParameter("@email", email),
                 //new SqlParameter("@password", password)
             };
-            dt = common.Instance.GetTable("SP_GetUser_LogPage", sqlParameters,true);
+            dt = common.Instance.GetTable("SP_GetUser_LogPage", sqlParameters, true);
             return dt;
         }
     }

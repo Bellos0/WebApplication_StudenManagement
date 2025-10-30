@@ -14,6 +14,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -36,21 +37,42 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <div align="right">
+            <a class="navbar-brand" ID="HyperLink1" runat="server" href="#">Home</a>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="navbar-brand" ID="HyperLink2" runat="server" href="~/About">About</a>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="navbar-brand" ID="HyperLink3" runat="server" href="~/Contact">Contact</a>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="navbar-brand" href="~/RegPage.aspx" runat="server">Register</a>
 
+        </div>
+
+        <div class="center-flex">
+            <h3>Trường trung học phổ thông Lương Ngọc Quyến</h3>
+        </div>
+
+        <div align="right" class="navbar-brand">
+            <asp:LinkButton ID="lbt_user" runat="server">User</asp:LinkButton>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <asp:LinkButton ID="lbt_login" runat="server" OnClick="lbt_login_Click">Log In</asp:LinkButton>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <asp:LinkButton ID="lbt_logout" runat="server" OnClick="lbt_logout_Click">Log Out</asp:LinkButton>
+        </div>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" runat="server" href="~/"><h4>Student Management System</h4></a>
+                <%--<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                </button>--%>
+                <%--<div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                     </ul>
-                </div>
+                </div>--%>
             </div>
         </nav>
         <div class="container body-content">

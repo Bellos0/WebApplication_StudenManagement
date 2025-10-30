@@ -87,6 +87,14 @@ namespace WebApplication_StudenManagement.Classes
             return dt;
         }
 
+
+        /// <summary>
+        /// dung insert update du lieu len database
+        /// </summary>
+        /// <param name="SP_SQL"></param>
+        /// <param name="parameters"></param>
+        /// <param name="storeProcedure"></param>
+        /// <returns></returns>
         public bool ExcecuteSQL(string SP_SQL, SqlParameter[] parameters = null, bool storeProcedure = false)
         {
             using (SqlConnection conn = new SqlConnection(strConnection))
