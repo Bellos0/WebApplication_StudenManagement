@@ -17,5 +17,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px; /* or any height */
+    height: 100%; /* or any height */
 }

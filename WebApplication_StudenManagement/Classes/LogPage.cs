@@ -14,22 +14,33 @@ namespace WebApplication_StudenManagement.Classes
         {
         }
 
-        public static LogPage Instance { get => instance; set => instance = value; }
+        public static LogPage Instance 
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new LogPage();
+                }
+                return instance;
+            }
+            set
+            {
+                instance=value;
+            }
+            
+        }
 
         public DataTable GetUser(string email, string password)
         {
             DataTable dt = new DataTable();
-            string query = "SELECT email, pass FROM Users WHERE email = @email";
+            //string query = "SELECT * FROM teacherlog WHERE email = @email";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                new SqlParameter("@username", email),
-                new SqlParameter("@password", password)
+                new SqlParameter("@email", email),
+                //new SqlParameter("@password", password)
             };
-            dt = common.Instance.GetTable(query, sqlParameters);
-
-            
-           
-
+            dt = common.Instance.GetTable("SP_GetUser_LogPage", sqlParameters,true);
             return dt;
         }
     }
