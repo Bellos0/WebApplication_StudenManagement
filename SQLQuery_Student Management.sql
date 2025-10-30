@@ -92,5 +92,33 @@ values
 (@uname,@pass,@email,@phone)
 
 
+create procedure SP_AddStudent
+(
+@stuID char(10),
+@fullname nvarchar(50),
+@DoB date,
+@sex char(10),
+@class char(10),
+@address nvarchar(250),
+@ParentPhone char(20)
+)
+as
+insert into student (stuID,fullname,DoB,sex,class,address,ParentPhone)
+values
+(@stuID,@fullname,@DoB,@sex,@class,@address,@ParentPhone)
+
+
+create proc SP_checkStuID
+(
+@stuID char(10)
+)
+as 
+select * from student where stuID=@stuID
+
+
+
+select  * from student
 grant execute on object:: dbo.SP_GetUser_LogPage to [thanh]
 grant execute on object:: dbo.SP_RegUser_RegPage to [thanh]
+grant execute on object::dbo.SP_AddStudent to [thanh]
+grant execute on object::dbo.SP_checkStuID to [thanh]
