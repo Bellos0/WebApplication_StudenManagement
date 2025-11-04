@@ -114,11 +114,44 @@ create proc SP_checkStuID
 )
 as 
 select * from student where stuID=@stuID
+---------------------
+create proc SP_checkSubjectExist
+(
+@subID char(5),
+@subname varchar(20)
+)
+as
+select 
+subID, subname 
+from 
+subject 
+where 
+subID=@subID or subname = @subname
+
+----------
+
+CREATE PROCEDURE SP_AddSubject 
+    @subID char(5),
+    @subname varchar(20) 
+AS
+    insert into subject 
+	(subID,subname) 
+	values 
+	(@subID,@subname)
+	-----------------------------
+CREATE PROCEDURE SP_LoadAllSubject
+    
+AS
+    SELECT * from subject
 
 
 
 select  * from student
+select  * from subject
 grant execute on object:: dbo.SP_GetUser_LogPage to [thanh]
 grant execute on object:: dbo.SP_RegUser_RegPage to [thanh]
 grant execute on object::dbo.SP_AddStudent to [thanh]
 grant execute on object::dbo.SP_checkStuID to [thanh]
+grant execute on object::dbo.SP_checkSubjectExist to [thanh]
+grant execute on object::dbo.SP_AddSubject to [thanh]
+grant execute on object::dbo.SP_LoadAllSubject to [thanh]

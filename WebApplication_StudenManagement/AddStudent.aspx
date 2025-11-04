@@ -7,60 +7,61 @@
         <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <asp:Panel ID="pnlAddStudent" runat="server">
-            <table border="1">
+            </asp:Panel>
+            <table border="1" >
                 <tr>
-                    <td>
+                    <td style="width: 100px">
                         <asp:Label ID="lblName" runat="server" Text="Student ID:"></asp:Label></td>
-                    <td>
-                        <asp:TextBox ID="txtStID" runat="server" Width="100%"  ></asp:TextBox>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtStID" runat="server" Width="90%"  ></asp:TextBox>
                         
                     </td>
                     <td align="right">
-                        <asp:Button ID="btnGenID" runat="server" Text="Fill ID" Height="30px" Width="80px" Font-Bold="True" OnClick="btnGenID_Click" />
+                        <asp:Button ID="btnGenID" runat="server" Text="Fill ID" Height="30px" Width="80px" Font-Bold="True" OnClick="btnGenID_Click" CausesValidation="False" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="lblAge" runat="server" Text="Full Name:"></asp:Label></td>
-                    <td>
-                        <asp:TextBox ID="txtFname" runat="server" Width="100%"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFname">*</asp:RequiredFieldValidator></td>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtFname" runat="server" Width="90%"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFname">*</asp:RequiredFieldValidator></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="lblClass" runat="server" Text="Date of Birth:"></asp:Label></td>
-                    <td class="w-100" style="width: 109%">
-                        <asp:TextBox ID="txtDoB" runat="server" Width="100%" TextMode="Date"></asp:TextBox></td>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtDoB" runat="server" Width="90%" TextMode="Date"></asp:TextBox></td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="Label1" runat="server" Text="Sex:"></asp:Label></td>
-                    <td >
+                    <td style="width: 300px">
                         
                         <asp:DropDownList ID="ddlSex" runat="server"></asp:DropDownList>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="Label2" runat="server" Text="Class:"></asp:Label></td>
-                    <td class="w-100" style="width: 109%">
-                        <asp:TextBox ID="txtClass" runat="server" Width="100%"></asp:TextBox>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtClass" runat="server" Width="90%"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtClass">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="Label3" runat="server" Text="Address:"></asp:Label></td>
-                    <td class="w-100" style="width: 109%">
-                        <asp:TextBox ID="txtAddress" runat="server" Width="100%"></asp:TextBox></td>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtAddress" runat="server" Width="90%"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="width: 99px">
                         <asp:Label ID="Label4" runat="server" Text="Parent Phone:"></asp:Label></td>
-                    <td class="w-100" style="width: 109%">
-                        <asp:TextBox ID="txtPPhone" runat="server" Width="100%"></asp:TextBox></td>
+                    <td style="width: 300px">
+                        <asp:TextBox ID="txtPPhone" runat="server" Width="90%"></asp:TextBox></td>
                 </tr>
 
                 <tr>
@@ -72,6 +73,6 @@
                     </td>
                 </tr>
             </table>
-        </asp:Panel>
+        
     </div>
 </asp:Content>

@@ -51,7 +51,23 @@ namespace WebApplication_StudenManagement.Classes
             {
                 return true;
             }
-            
+        }
+
+        public bool AddSubject(string subID, string subName)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@subID", subID),
+                new SqlParameter("@subname", subName)
+            };
+            if(common.Instance.ExcecuteSQL("SP_AddSubject", sqlParameters,true))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

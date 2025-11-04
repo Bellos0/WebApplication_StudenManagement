@@ -34,6 +34,12 @@ namespace WebApplication_StudenManagement.Classes
         {
         }
 
+        /// <summary>
+        /// Gettable take record from database then input to the table user created, using query in backend code
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public DataTable GetTable(string query, SqlParameter[] parameters = null)
         {
             DataTable dt = new DataTable();
@@ -56,6 +62,14 @@ namespace WebApplication_StudenManagement.Classes
             return dt;
         }
 
+
+        /// <summary>
+        /// Gettable take record from database then input to the table user created, using Store procedure in SQL server
+        /// </summary>
+        /// <param name="querySQL"></param>
+        /// <param name="sqlParameters"></param>
+        /// <param name="store_procedure"></param>
+        /// <returns></returns>
         public DataTable GetTable(string querySQL, SqlParameter[] sqlParameters = null, bool store_procedure = false)
         {
             DataTable dt = new DataTable();
@@ -89,7 +103,9 @@ namespace WebApplication_StudenManagement.Classes
 
 
         /// <summary>
-        /// dung insert update du lieu len database
+        /// dung insert update du lieu len database bang store procedure tren SQL server.
+        /// True: record thanh cong
+        /// False: record that bai
         /// </summary>
         /// <param name="SP_SQL"></param>
         /// <param name="parameters"></param>
