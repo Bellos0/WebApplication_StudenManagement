@@ -21,7 +21,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtSubID">*</asp:RequiredFieldValidator>
                     </td>
                     <td>
-                        <asp:Button ID="btnValidated" runat="server" Text="Check validation" OnClick="btnValidated_Click" Width="150px" />
+                        <asp:Button ID="btnValidated" runat="server" Text="Check" OnClick="btnValidated_Click" Width="080px" />
                     </td>
                 </tr>
                 <tr>

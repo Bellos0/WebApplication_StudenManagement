@@ -11,6 +11,10 @@ namespace WebApplication_StudenManagement
 {
     public partial class AddSubject : System.Web.UI.Page
     {
+        //private bool count;
+
+        //public bool Count { get => count; set => count = value; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,36 +35,53 @@ namespace WebApplication_StudenManagement
 
         protected void btnAddSubject_Click(object sender, EventArgs e)
         {
+            bool count = ViewState["count"] != null && (bool)ViewState["count"];
+
             string subID, subName;
             subID = txtSubID.Text.ToUpper().Trim();
             subName = txtsubName.Text;
-
-            if (Classes.Write.Instance.AddSubject(subID, subName))
+            if (!count)
             {
-                lbError.Text = "Add subject successfully";
-                txtsubName.Text = string.Empty;
-                txtSubID.Text = string.Empty;
+                lbError.Text = "Please validate subject ID and subject name before adding";
+                return;
             }
             else
             {
-                lbError.Text = "Add subject failed, try again";
+                if (Classes.Write.Instance.AddSubject(subID, subName))
+                {
+                    lbError.Text = "Add subject successfully";
+                    txtsubName.Text = string.Empty;
+                    txtSubID.Text = string.Empty;
+                }
+                else
+                {
+                    lbError.Text = "Add subject failed, try again";
+                }
             }
+            ViewState["count"] = null;
         }
 
         protected void btnValidated_Click(object sender, EventArgs e)
         {
+
             string subID, subName;
             subID = txtSubID.Text.ToUpper().Trim();
             subName = txtsubName.Text;
             if (Classes.Read.Instance.checkSubject(subID, subName))
             {
                 lbError.Text = "Subject ID and subject name valid";
+                ViewState["count"] = true;
             }
             else
             {
                 lbError.Text = "Subject ID or subject name already exist, try again";
+                ViewState["count"] = false;
             }
+
         }
+
+
+
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
