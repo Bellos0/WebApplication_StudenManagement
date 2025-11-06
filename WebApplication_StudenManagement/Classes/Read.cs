@@ -63,5 +63,23 @@ namespace WebApplication_StudenManagement.Classes
                 return false;
             }
         }
+
+        public DataTable GetStudentList()
+        {
+            DataTable dt = new DataTable();
+            dt = common.Instance.GetTable("SP_LoadAllStudent", null, true);
+            return dt;
+        }
+
+        public DataTable getStuByStuID(string stuID)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@stuID", stuID)
+            };
+            dt = common.Instance.GetTable("SP_LoadStudent_by_stuID", sqlParameters, true);
+            return dt;
+        }
     }
 }

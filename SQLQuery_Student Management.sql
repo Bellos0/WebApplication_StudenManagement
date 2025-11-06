@@ -25,6 +25,24 @@ avScore char(5)
 
 alter table student
 drop column avScore 
+----
+--chinh sua cai bang score 1 ty cho co diem kiem tra 15 phut va diem kime tra 60 phut
+alter table Score
+drop column score
+
+alter table Score
+add score15 char(5)
+go
+alter table Score
+add score60 char(5)
+go
+alter table Score
+drop constraint PK_subname
+go
+alter table Score
+add constraint PK_IDscore primary key (id)
+go
+
 
 create table subject
 (
@@ -155,3 +173,19 @@ grant execute on object::dbo.SP_checkStuID to [thanh]
 grant execute on object::dbo.SP_checkSubjectExist to [thanh]
 grant execute on object::dbo.SP_AddSubject to [thanh]
 grant execute on object::dbo.SP_LoadAllSubject to [thanh]
+
+-- bang score se can phai sua de co the tinh diem kiem tra mieng, diem 1 tiet, diem cuoi ky de cos the dien gia tri vao diem trung binh avgscore
+insert into 
+student 
+values
+(
+'st14',
+'t4',
+'1995-08-08',
+'male',
+'10a11k65',
+'quang trung',
+'64665'
+)
+go
+select * from student

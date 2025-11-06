@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication_StudenManagement.Classes;
 
 namespace WebApplication_StudenManagement
 {
@@ -16,9 +18,9 @@ namespace WebApplication_StudenManagement
         protected void Page_Load(object sender, EventArgs e)
         {
             FillDropdownList();
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                //FillDropdownList();
+                //LoadStudentList();
                 txtStID.ReadOnly = true;
             }
         }
@@ -30,6 +32,15 @@ namespace WebApplication_StudenManagement
             ddlSex.Items.Add("Male");
             ddlSex.Items.Add("Female");
         }
+
+        //public void LoadStudentList()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt = Read.Instance.GetStudentList();
+        //    dtlShowStud.DataSource = dt;
+        //    dtlShowStud.DataBind();
+        //}
+
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
@@ -85,5 +96,24 @@ namespace WebApplication_StudenManagement
             txtStID.Text = _stuID;
             txtStID.ReadOnly= true;
         }
+
+        protected void dtlShowStud_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            
+        }
+
+        protected void dtlShowStud_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "DetailStudent")
+            {
+                string stuID = e.CommandArgument.ToString();
+                Response.Redirect($"StudentDetail.aspx?stuID={stuID}");
+            }
+        }
+
+        //protected void txtEdit_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("StudentDetail.aspx?stuID=test");
+        //}
     }
 }
